@@ -1,9 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Temperature from './Temperature';
 
 function App() {
   const [weatherData, setWeatherData] = useState(false);
+  const [degrees, setDegrees] = useState("℃");
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -26,9 +28,13 @@ function App() {
               src={weatherData.weather[0].icon}
               alt={weatherData.weather[0].description}
             />
-            <h2 className="weather__temperature__text">
-              {Math.floor(weatherData.main.temp)}℃
-            </h2>
+            <Temperature
+              celcious={weatherData.main.temp}
+              fahrenheit={weatherData.main.temp * 9 / 5 + 32}
+              setDegrees={setDegrees}
+              degrees={degrees}
+            />
+
           </div>
           <p className="weather__type">
             {weatherData.weather[0].main}

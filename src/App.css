@@ -8,9 +8,10 @@ p, h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 100px;
 }
 .weather {
   padding: 0 20px 10px 20px;
@@ -38,16 +39,46 @@ p, h2 {
   width: 100px;
   height: 50px;
   max-height: 50px;
+  position: relative;
 
+}
+
+.weather__temperature__container{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  flex-direction: column;
+}
+.weather__temperature__degrees{
+  display:block
+}
+
+.weather__temperature__button{
+  position: absolute;
+  display: block;
+  right: -15px;
+  top: -10px;
+  width: 35px;
+  height: 20px;
+  border-radius: 50px;
+  border: 0;
+  padding: 0;
+  background-color: #afafaf;
+  color: rgb(56, 56, 56);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+.weather__temperature__button:hover{
+  background-color: #fff;
+  color: #afafaf;
 }
 
 .weather__temperature__icon {
   width: 100%;
   opacity: 0.25;
-}
-
-.weather__temperature__text {
-  position: absolute;
 }
 .weather__feel, .weather__humidity {
   font-size: calc(7px + 1vmin);
